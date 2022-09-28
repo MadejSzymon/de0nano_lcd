@@ -1,0 +1,849 @@
+Analysis & Synthesis report for LCD
+Wed Sep 28 20:10:13 2022
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: cnt:cnt_21
+ 13. Parameter Settings for User Entity Instance: cnt:cnt_2
+ 14. Parameter Settings for User Entity Instance: cnt:cnt_4
+ 15. Parameter Settings for User Entity Instance: cnt_inst:inst_cnt
+ 16. Parameter Settings for User Entity Instance: data_mux:data_mux|lpm_mux:LPM_MUX_component
+ 17. Parameter Settings for User Entity Instance: delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component
+ 18. Port Connectivity Checks: "delay_block:delay_block|delay_mux_in:delay_mux_in"
+ 19. Port Connectivity Checks: "data_mux:data_mux"
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Sep 28 20:10:13 2022       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; LCD                                         ;
+; Top-level Entity Name              ; top                                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 704                                         ;
+;     Total combinational functions  ; 432                                         ;
+;     Dedicated logic registers      ; 439                                         ;
+; Total registers                    ; 439                                         ;
+; Total pins                         ; 12                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; top                ; LCD                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+; top.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv                                 ;         ;
+; fsm.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/fsm.sv                                 ;         ;
+; pkg.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/pkg.sv                                 ;         ;
+; cnt.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/cnt.sv                                 ;         ;
+; data_mux.v                       ; yes             ; User Wizard-Generated File   ; C:/DE0-Nano/Projekty/LCD/rtl_3/data_mux.v                             ;         ;
+; delay_block.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/delay_block.sv                         ;         ;
+; delay_mux_in.v                   ; yes             ; User Wizard-Generated File   ; C:/DE0-Nano/Projekty/LCD/rtl_3/delay_mux_in.v                         ;         ;
+; delay.sv                         ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/delay.sv                               ;         ;
+; cnt_inst.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/cnt_inst.sv                            ;         ;
+; uart_rx.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/uart_rx.sv                             ;         ;
+; cnt_rx.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/cnt_rx.sv                              ;         ;
+; data_reg.sv                      ; yes             ; User SystemVerilog HDL File  ; C:/DE0-Nano/Projekty/LCD/rtl_3/data_reg.sv                            ;         ;
+; lpm_mux.tdf                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf    ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc ;         ;
+; muxlut.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/muxlut.inc     ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc   ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc   ;         ;
+; db/mux_1re.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/DE0-Nano/Projekty/LCD/rtl_3/db/mux_1re.tdf                         ;         ;
+; db/mux_hse.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/DE0-Nano/Projekty/LCD/rtl_3/db/mux_hse.tdf                         ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                     ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimated Total logic elements              ; 704               ;
+;                                             ;                   ;
+; Total combinational functions               ; 432               ;
+; Logic element usage by number of LUT inputs ;                   ;
+;     -- 4 input functions                    ; 288               ;
+;     -- 3 input functions                    ; 51                ;
+;     -- <=2 input functions                  ; 93                ;
+;                                             ;                   ;
+; Logic elements by mode                      ;                   ;
+;     -- normal mode                          ; 373               ;
+;     -- arithmetic mode                      ; 59                ;
+;                                             ;                   ;
+; Total registers                             ; 439               ;
+;     -- Dedicated logic registers            ; 439               ;
+;     -- I/O registers                        ; 0                 ;
+;                                             ;                   ;
+; I/O pins                                    ; 12                ;
+;                                             ;                   ;
+; Embedded Multiplier 9-bit elements          ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; i_board_clk~input ;
+; Maximum fan-out                             ; 439               ;
+; Total fan-out                               ; 2750              ;
+; Average fan-out                             ; 3.07              ;
++---------------------------------------------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                     ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+--------------+
+; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                     ; Entity Name  ; Library Name ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+--------------+
+; |top                                 ; 432 (1)             ; 439 (1)                   ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |top                                                                                                    ; top          ; work         ;
+;    |cnt:cnt_21|                      ; 21 (21)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cnt:cnt_21                                                                                         ; cnt          ; work         ;
+;    |cnt:cnt_2|                       ; 2 (2)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cnt:cnt_2                                                                                          ; cnt          ; work         ;
+;    |cnt:cnt_4|                       ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cnt:cnt_4                                                                                          ; cnt          ; work         ;
+;    |cnt_inst:inst_cnt|               ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cnt_inst:inst_cnt                                                                                  ; cnt_inst     ; work         ;
+;    |cnt_rx:cnt_rx|                   ; 7 (7)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|cnt_rx:cnt_rx                                                                                      ; cnt_rx       ; work         ;
+;    |data_mux:data_mux|               ; 199 (0)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|data_mux:data_mux                                                                                  ; data_mux     ; work         ;
+;       |lpm_mux:LPM_MUX_component|    ; 199 (0)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|data_mux:data_mux|lpm_mux:LPM_MUX_component                                                        ; lpm_mux      ; work         ;
+;          |mux_1re:auto_generated|    ; 199 (199)           ; 78 (78)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated                                 ; mux_1re      ; work         ;
+;    |data_reg:data_reg|               ; 39 (39)             ; 256 (256)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|data_reg:data_reg                                                                                  ; data_reg     ; work         ;
+;    |delay_block:delay_block|         ; 51 (0)              ; 26 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|delay_block:delay_block                                                                            ; delay_block  ; work         ;
+;       |delay:delay|                  ; 44 (44)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|delay_block:delay_block|delay:delay                                                                ; delay        ; work         ;
+;       |delay_mux_in:delay_mux_in|    ; 7 (0)               ; 7 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|delay_block:delay_block|delay_mux_in:delay_mux_in                                                  ; delay_mux_in ; work         ;
+;          |lpm_mux:LPM_MUX_component| ; 7 (0)               ; 7 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component                        ; lpm_mux      ; work         ;
+;             |mux_hse:auto_generated| ; 7 (7)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated ; mux_hse      ; work         ;
+;    |fsm:fsm|                         ; 49 (49)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|fsm:fsm                                                                                            ; fsm          ; work         ;
+;    |uart_rx:uart_rx|                 ; 50 (50)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|uart_rx:uart_rx                                                                                    ; uart_rx      ; work         ;
++--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                    ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                        ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------+-----------------+
+; Altera ; LPM_MUX      ; 18.1    ; N/A          ; N/A          ; |top|data_mux:data_mux                                 ; data_mux.v      ;
+; Altera ; LPM_MUX      ; 18.1    ; N/A          ; N/A          ; |top|delay_block:delay_block|delay_mux_in:delay_mux_in ; delay_mux_in.v  ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                  ;
++------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                              ; Reason for Removal                                                                                                     ;
++------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+; uart_rx:uart_rx|state_rx[2..31]                                                                            ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe114 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe115 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe116 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe117 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe118 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe119 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe120 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe121 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe124 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe125 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe126 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe127 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe128 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe129 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe130 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe131 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe134 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe135 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe136 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe137 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe138 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe139 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe140 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe141 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe144 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe145 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe146 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe147 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe148 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe149 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe150 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe151 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe154 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe155 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe156 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe157 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe158 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe159 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe160 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe161 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe164 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe165 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe166 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe167 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe168 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe169 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe170 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe171 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe173 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe174 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe175 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe176 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe177 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe178 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe179 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe180 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe181 ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe12                                  ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe2                                   ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe22                                  ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe62                                  ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe72                                  ; Stuck at GND due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe82                                  ; Stuck at GND due to stuck port data_in                                                                                 ;
+; fsm:fsm|state[4..31]                                                                                       ; Stuck at GND due to stuck port data_in                                                                                 ;
+; fsm:fsm|o_rst_inst                                                                                         ; Merged with fsm:fsm|o_enb_rx                                                                                           ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe142 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe132 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe152 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe132 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe162 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe132 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe172 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe132 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe123 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe113 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe133 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe113 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe143 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe113 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe153 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe113 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe163 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe113 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe122 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe112 ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe100 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe101 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe102 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe103 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe104 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe105 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe106 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe107 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe108 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe109 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe11  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe110 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe111 ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe12  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe13  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe14  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe15  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe16  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe17  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe18  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe19  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe2   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe20  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe21  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe22  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe23  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe24  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe25  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe26  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe27  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe28  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe29  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe3   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe30  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe31  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe32  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe33  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe34  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe35  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe36  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe37  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe38  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe39  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe4   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe40  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe41  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe42  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe43  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe44  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe45  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe46  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe47  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe48  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe49  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe5   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe50  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe51  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe52  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe53  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe54  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe55  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe56  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe57  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe58  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe59  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe6   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe60  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe61  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe62  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe63  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe64  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe65  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe66  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe67  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe68  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe69  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe7   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe70  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe71  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe72  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe73  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe74  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe75  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe76  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe77  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe78  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe79  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe8   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe80  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe81  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe82  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe83  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe84  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe85  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe86  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe87  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe88  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe89  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe9   ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe90  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe91  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe92  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe93  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe94  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe95  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe96  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe97  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe98  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe99  ; Merged with delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ;
+; delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated|dffe10  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe90                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe91                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe89                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe88                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe86                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe85                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe84                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe32                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe42                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated|dffe52                                  ; Stuck at VCC due to stuck port data_in                                                                                 ;
+; Total Number of Removed Registers = 252                                                                    ;                                                                                                                        ;
++------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 439   ;
+; Number of registers using Synchronous Clear  ; 45    ;
+; Number of registers using Synchronous Load   ; 13    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 299   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|cnt_inst:inst_cnt|o_cnt[4]                    ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|cnt_rx:cnt_rx|o_cnt[2]                        ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |top|delay_block:delay_block|delay:delay|w_cnt[12] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|uart_rx:uart_rx|bits_count_rx[2]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt_21 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; BIT_SIZE       ; 21    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt_2 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; BIT_SIZE       ; 2     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt:cnt_4 ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; BIT_SIZE       ; 4     ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cnt_inst:inst_cnt ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; BIT_SIZE       ; 6     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: data_mux:data_mux|lpm_mux:LPM_MUX_component ;
++------------------------+--------------+--------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                             ;
++------------------------+--------------+--------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                   ;
+; LPM_WIDTH              ; 9            ; Signed Integer                                   ;
+; LPM_SIZE               ; 40           ; Signed Integer                                   ;
+; LPM_WIDTHS             ; 6            ; Signed Integer                                   ;
+; LPM_PIPELINE           ; 1            ; Signed Integer                                   ;
+; CBXI_PARAMETER         ; mux_1re      ; Untyped                                          ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                          ;
++------------------------+--------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component ;
++------------------------+--------------+----------------------------------------------------------------------------------+
+; Parameter Name         ; Value        ; Type                                                                             ;
++------------------------+--------------+----------------------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS      ; ON           ; AUTO_CARRY                                                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF          ; IGNORE_CARRY                                                                     ;
+; AUTO_CASCADE_CHAINS    ; ON           ; AUTO_CASCADE                                                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF          ; IGNORE_CASCADE                                                                   ;
+; LPM_WIDTH              ; 18           ; Signed Integer                                                                   ;
+; LPM_SIZE               ; 40           ; Signed Integer                                                                   ;
+; LPM_WIDTHS             ; 6            ; Signed Integer                                                                   ;
+; LPM_PIPELINE           ; 1            ; Signed Integer                                                                   ;
+; CBXI_PARAMETER         ; mux_hse      ; Untyped                                                                          ;
+; DEVICE_FAMILY          ; Cyclone IV E ; Untyped                                                                          ;
++------------------------+--------------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Port Connectivity Checks: "delay_block:delay_block|delay_mux_in:delay_mux_in" ;
++-----------------+-------+----------+------------------------------------------+
+; Port            ; Type  ; Severity ; Details                                  ;
++-----------------+-------+----------+------------------------------------------+
+; data0x          ; Input ; Info     ; Stuck at VCC                             ;
+; data1x[12..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data1x[17..13]  ; Input ; Info     ; Stuck at GND                             ;
+; data2x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data2x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data3x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data3x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data4x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data4x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data5x[16..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data5x[17]      ; Input ; Info     ; Stuck at GND                             ;
+; data6x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data6x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data7x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data7x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data8x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data8x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data9x[10..0]   ; Input ; Info     ; Stuck at VCC                             ;
+; data9x[17..11]  ; Input ; Info     ; Stuck at GND                             ;
+; data10x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data10x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data11x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data11x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data12x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data12x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data13x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data13x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data14x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data14x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data15x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data15x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data16x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data16x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data17x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data17x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data18x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data18x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data19x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data19x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data20x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data20x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data21x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data21x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data22x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data22x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data23x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data23x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data24x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data24x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data25x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data25x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data26x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data26x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data27x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data27x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data28x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data28x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data29x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data29x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data30x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data30x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data31x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data31x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data32x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data32x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data33x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data33x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data34x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data34x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data35x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data35x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data36x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data36x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data37x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data37x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data38x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data38x[17..11] ; Input ; Info     ; Stuck at GND                             ;
+; data39x[10..0]  ; Input ; Info     ; Stuck at VCC                             ;
+; data39x[17..11] ; Input ; Info     ; Stuck at GND                             ;
++-----------------+-------+----------+------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "data_mux:data_mux"   ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; data0x[5..3]  ; Input ; Info     ; Stuck at VCC ;
+; data0x[8..6]  ; Input ; Info     ; Stuck at GND ;
+; data0x[2..0]  ; Input ; Info     ; Stuck at GND ;
+; data1x[5..3]  ; Input ; Info     ; Stuck at VCC ;
+; data1x[8..6]  ; Input ; Info     ; Stuck at GND ;
+; data1x[2..0]  ; Input ; Info     ; Stuck at GND ;
+; data2x[5..3]  ; Input ; Info     ; Stuck at VCC ;
+; data2x[8..6]  ; Input ; Info     ; Stuck at GND ;
+; data2x[2..0]  ; Input ; Info     ; Stuck at GND ;
+; data3x[5..3]  ; Input ; Info     ; Stuck at VCC ;
+; data3x[8..6]  ; Input ; Info     ; Stuck at GND ;
+; data3x[2..0]  ; Input ; Info     ; Stuck at GND ;
+; data4x[3..0]  ; Input ; Info     ; Stuck at VCC ;
+; data4x[8..4]  ; Input ; Info     ; Stuck at GND ;
+; data5x[8..1]  ; Input ; Info     ; Stuck at GND ;
+; data5x[0]     ; Input ; Info     ; Stuck at VCC ;
+; data6x[2..1]  ; Input ; Info     ; Stuck at VCC ;
+; data6x[8..3]  ; Input ; Info     ; Stuck at GND ;
+; data6x[0]     ; Input ; Info     ; Stuck at GND ;
+; data7x[8]     ; Input ; Info     ; Stuck at VCC ;
+; data8x[8]     ; Input ; Info     ; Stuck at VCC ;
+; data9x[8]     ; Input ; Info     ; Stuck at VCC ;
+; data10x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data11x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data12x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data13x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data14x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data15x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data16x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data17x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data18x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data19x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data20x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data21x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data22x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data23x[7..6] ; Input ; Info     ; Stuck at VCC ;
+; data23x[5..0] ; Input ; Info     ; Stuck at GND ;
+; data23x[8]    ; Input ; Info     ; Stuck at GND ;
+; data24x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data25x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data26x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data27x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data28x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data29x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data30x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data31x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data32x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data33x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data34x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data35x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data36x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data37x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data38x[8]    ; Input ; Info     ; Stuck at VCC ;
+; data39x[8]    ; Input ; Info     ; Stuck at VCC ;
++---------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 12                          ;
+; cycloneiii_ff         ; 439                         ;
+;     ENA               ; 269                         ;
+;     ENA SCLR          ; 24                          ;
+;     ENA SLD           ; 6                           ;
+;     SCLR              ; 21                          ;
+;     SLD               ; 7                           ;
+;     plain             ; 112                         ;
+; cycloneiii_lcell_comb ; 432                         ;
+;     arith             ; 59                          ;
+;         2 data inputs ; 59                          ;
+;     normal            ; 373                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 51                          ;
+;         4 data inputs ; 288                         ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 2.43                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Sep 28 20:09:59 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LCD -c LCD
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file top.sv
+    Info (12023): Found entity 1: top File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.sv
+    Info (12023): Found entity 1: fsm File: C:/DE0-Nano/Projekty/LCD/rtl_3/fsm.sv Line: 2
+Info (12021): Found 1 design units, including 0 entities, in source file pkg.sv
+    Info (12022): Found design unit 1: pkg (SystemVerilog) File: C:/DE0-Nano/Projekty/LCD/rtl_3/pkg.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file cnt.sv
+    Info (12023): Found entity 1: cnt File: C:/DE0-Nano/Projekty/LCD/rtl_3/cnt.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file data_mux.v
+    Info (12023): Found entity 1: data_mux File: C:/DE0-Nano/Projekty/LCD/rtl_3/data_mux.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file delay_block.sv
+    Info (12023): Found entity 1: delay_block File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_block.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file delay_mux_in.v
+    Info (12023): Found entity 1: delay_mux_in File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_mux_in.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file delay.sv
+    Info (12023): Found entity 1: delay File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file cnt_inst.sv
+    Info (12023): Found entity 1: cnt_inst File: C:/DE0-Nano/Projekty/LCD/rtl_3/cnt_inst.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file uart_rx.sv
+    Info (12023): Found entity 1: uart_rx File: C:/DE0-Nano/Projekty/LCD/rtl_3/uart_rx.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file cnt_rx.sv
+    Info (12023): Found entity 1: cnt_rx File: C:/DE0-Nano/Projekty/LCD/rtl_3/cnt_rx.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file data_reg.sv
+    Info (12023): Found entity 1: data_reg File: C:/DE0-Nano/Projekty/LCD/rtl_3/data_reg.sv Line: 2
+Info (12127): Elaborating entity "top" for the top level hierarchy
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:fsm" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 49
+Info (12128): Elaborating entity "cnt" for hierarchy "cnt:cnt_21" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 55
+Info (12128): Elaborating entity "cnt" for hierarchy "cnt:cnt_2" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 61
+Info (12128): Elaborating entity "cnt" for hierarchy "cnt:cnt_4" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 67
+Info (12128): Elaborating entity "cnt_inst" for hierarchy "cnt_inst:inst_cnt" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 74
+Info (12128): Elaborating entity "data_mux" for hierarchy "data_mux:data_mux" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 120
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "data_mux:data_mux|lpm_mux:LPM_MUX_component" File: C:/DE0-Nano/Projekty/LCD/rtl_3/data_mux.v Line: 182
+Info (12130): Elaborated megafunction instantiation "data_mux:data_mux|lpm_mux:LPM_MUX_component" File: C:/DE0-Nano/Projekty/LCD/rtl_3/data_mux.v Line: 182
+Info (12133): Instantiated megafunction "data_mux:data_mux|lpm_mux:LPM_MUX_component" with the following parameter: File: C:/DE0-Nano/Projekty/LCD/rtl_3/data_mux.v Line: 182
+    Info (12134): Parameter "lpm_pipeline" = "1"
+    Info (12134): Parameter "lpm_size" = "40"
+    Info (12134): Parameter "lpm_type" = "LPM_MUX"
+    Info (12134): Parameter "lpm_width" = "9"
+    Info (12134): Parameter "lpm_widths" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_1re.tdf
+    Info (12023): Found entity 1: mux_1re File: C:/DE0-Nano/Projekty/LCD/rtl_3/db/mux_1re.tdf Line: 22
+Info (12128): Elaborating entity "mux_1re" for hierarchy "data_mux:data_mux|lpm_mux:LPM_MUX_component|mux_1re:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 86
+Info (12128): Elaborating entity "delay_block" for hierarchy "delay_block:delay_block" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 127
+Info (12128): Elaborating entity "delay_mux_in" for hierarchy "delay_block:delay_block|delay_mux_in:delay_mux_in" File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_block.sv Line: 55
+Info (12128): Elaborating entity "lpm_mux" for hierarchy "delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component" File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_mux_in.v Line: 182
+Info (12130): Elaborated megafunction instantiation "delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component" File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_mux_in.v Line: 182
+Info (12133): Instantiated megafunction "delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component" with the following parameter: File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_mux_in.v Line: 182
+    Info (12134): Parameter "lpm_pipeline" = "1"
+    Info (12134): Parameter "lpm_size" = "40"
+    Info (12134): Parameter "lpm_type" = "LPM_MUX"
+    Info (12134): Parameter "lpm_width" = "18"
+    Info (12134): Parameter "lpm_widths" = "6"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_hse.tdf
+    Info (12023): Found entity 1: mux_hse File: C:/DE0-Nano/Projekty/LCD/rtl_3/db/mux_hse.tdf Line: 22
+Info (12128): Elaborating entity "mux_hse" for hierarchy "delay_block:delay_block|delay_mux_in:delay_mux_in|lpm_mux:LPM_MUX_component|mux_hse:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf Line: 86
+Info (12128): Elaborating entity "delay" for hierarchy "delay_block:delay_block|delay:delay" File: C:/DE0-Nano/Projekty/LCD/rtl_3/delay_block.sv Line: 62
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 135
+Info (12128): Elaborating entity "cnt_rx" for hierarchy "cnt_rx:cnt_rx" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 142
+Info (12128): Elaborating entity "data_reg" for hierarchy "data_reg:data_reg" File: C:/DE0-Nano/Projekty/LCD/rtl_3/top.sv Line: 150
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 719 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 707 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Wed Sep 28 20:10:13 2022
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:28
+
+

@@ -1,0 +1,37 @@
+clear 
+COM = 'COM5';
+baud_rate = 9600;
+data_type = "uint8";
+
+ascii_chars = [' ','!','"','#','$','%','&',"'",'(',')','*','+',',','-','.','/',...
+    '0','1','2','3','4','5','6','7','8','9',':',';','<','=','>','?',...
+    '@','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',...
+    'P','Q','R','S','T','U','V','W','X','Y','Z','[',']','^','_',...
+    '`','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o',...
+    'p','q','r','s','t','u','v','w','x','y','z','{','|','}'];
+
+led_chars = [4,132,68,196,36,164,100,228,20,148,84,212,52,180,116,244,...
+    12,140,76,204,44,172,108,236,28,156,92,220,60,188,124,252,...
+    2,130,66,194,34,162,98,226,18,146,82,210,50,178,114,242,...
+    10,138,74,202,42,170,106,234,26,154,90,218,186,122,250,...
+    6,134,70,198,38,166,102,230,22,150,86,214,54,182,118,246,...
+    14,142,78,206,46,174,110,238,30,158,94,222,62,190];
+
+data = char("Hello all");
+converted_data = zeros(1,length(data)); 
+for i = 1:length(data)
+    indx = find(data(i) == ascii_chars, 1, 'first');
+    converted_data(i) = led_chars(indx);
+end
+
+device = serialport(COM,baud_rate);
+write(device,converted_data(1),data_type)
+write(device,converted_data(2),data_type)
+write(device,converted_data(3),data_type)
+write(device,converted_data(4),data_type)
+write(device,converted_data(5),data_type)
+write(device,converted_data(6),data_type)
+write(device,converted_data(7),data_type)
+write(device,converted_data(8),data_type)
+write(device,converted_data(9),data_type)
+fopen(device);
