@@ -1,6 +1,9 @@
 # de0nano_lcd
 Simple FPGA driver for HD44780 2x16 LCD. 
 
+![1664395390087](https://user-images.githubusercontent.com/110915050/192877981-39ead6aa-eb37-489c-92b3-289f8b7d12bd.jpg)
+
+
 1. Connect UART module to your USB Port (you can check pins in Quartus Pin Planner).
 
 2. Connect LCD to FPGA (you can check pins in Quartus Pin Planner).
